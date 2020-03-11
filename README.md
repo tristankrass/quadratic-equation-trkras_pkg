@@ -1,5 +1,6 @@
 # quadratic-equation
 
+[Link to Pypi](https://test.pypi.org/project/qequation-trkras-pkg/0.0.1/)
 
 ### How to use?
 
