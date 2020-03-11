@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="quadratic-equation-trkras-pkg", # Replace with your own username
+    name="qequation-trkras-pkg",
     version="0.0.1",
     author="Tristan Krass",
     author_email="tristan@tristan.ee",
-    description="HW1 Quadratic solver",
+    description="Quadratic equation solver",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/quadratic-equation-trkras_pkg",
+    url="https://github.com/tristankrass/quadratic-equation-trkras_pkg",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
