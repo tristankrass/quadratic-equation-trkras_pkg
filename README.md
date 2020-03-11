@@ -25,3 +25,7 @@ Insert member(x): 2
 Insert free member(c): 0
 The solution is: 0.0 -4.0
 ```
+
+### TODOS
+
+- [ ] Adding tests

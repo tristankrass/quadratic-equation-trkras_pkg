@@ -1,0 +1,1 @@
+"""Test possible values for quadratic solver."""
