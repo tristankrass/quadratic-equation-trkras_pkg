@@ -10,6 +10,9 @@ def solve_equation() -> list:
   x2 = int(x2)
   x = int(x)
   c = int(c)
+  if x == 0:
+    print("This values cannot make a quadratic equation.")
+    return
   try:
     x_1 = (-x + sqrt(x**2 - 4 * x2 * c)) / 2 * x2
     x_2 = (-x - sqrt(x**2 - 4 * x2 * c)) / 2 * x2
