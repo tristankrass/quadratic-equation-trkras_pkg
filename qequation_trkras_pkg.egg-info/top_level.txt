@@ -1,1 +1,0 @@
-quadradic_solver

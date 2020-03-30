@@ -6,14 +6,15 @@
 
 Install the package
 ```
-pip install -i https://test.pypi.org/simple/ qequation-trkras-pkg==0.0.1
+pip install -i https://test.pypi.org/simple/ qequation-trkras-pkg==1.0
 ```
 
 make a new python file and import the package
 ```python
 import quadradic_solver.main as quadradic_solver
 
-quadradic_solver.ask_user_input() # This will call  the solve equaiton with user inputs.
+
+quadradic_solver.ask_user_input(1, 0, 0) # This will call  the solve equaiton with user inputs.
 
 quadradic_solver.solve_equation() # Main function is solve_equation
 ```

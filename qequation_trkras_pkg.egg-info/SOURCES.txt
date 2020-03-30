@@ -1,8 +1,0 @@
-README.md
-setup.py
-qequation_trkras_pkg.egg-info/PKG-INFO
-qequation_trkras_pkg.egg-info/SOURCES.txt
-qequation_trkras_pkg.egg-info/dependency_links.txt
-qequation_trkras_pkg.egg-info/top_level.txt
-quadradic_solver/__init__.py
-quadradic_solver/main.py
