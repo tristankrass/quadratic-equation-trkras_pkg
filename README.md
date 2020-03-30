@@ -13,10 +13,14 @@ make a new python file and import the package
 ```python
 import quadradic_solver.main as quadradic_solver
 
-quadradic_solver.solve_equation() ## Main function is solve_equation
+quadradic_solver.ask_user_input() # This will call  the solve equaiton with user inputs.
+
+quadradic_solver.solve_equation() # Main function is solve_equation
 ```
+
 This function will ask input from user and decides whether or not the equation has
-possible solutions or not. The method return the list of two possible solutions.
+possible solutions or not. The method return tuple. If there are no solutions then a tuple
+of (-1, -1) will be returned and accompanying message will be printed out to the command line. 
 
 DEMO:
 ```
@@ -26,6 +30,10 @@ Insert free member(c): 0
 The solution is: 0.0 -4.0
 ```
 
-### TODOS
+### Running tests
 
-- [ ] Adding tests
+```
+cd tests
+
+python -m pytest
+```

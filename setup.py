@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="qequation-trkras-pkg",
-    version="0.0.1",
+    version="0.0.3",
     author="Tristan Krass",
     author_email="tristan@tristan.ee",
     description="Quadratic equation solver",

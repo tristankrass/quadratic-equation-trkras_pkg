@@ -2,3 +2,4 @@ dist/
 build/
 quadratic-equation-trkras_pkg
 quadratic_equation_trkras_pkg.egg-info/
+__pycache__
