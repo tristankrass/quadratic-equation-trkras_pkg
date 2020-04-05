@@ -21,7 +21,7 @@ for i in range(len(tds)-2):
     if i < 3:
         headers.append(tds[i].text)
     else:
-        rows.append({headers[0]: tds[i].text, headers[1]: tds[i+1].text, headers[2]: tds[i+2].text})
+        rows.append({headers[0]: tds[i].text, headers[1]: tds[i+1]., headers[2]: tds[i+2]})
         i+=2
 
 with open('cuantines.csv', 'w', newline='') as csvfile:
