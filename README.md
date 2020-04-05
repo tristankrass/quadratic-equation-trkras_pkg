@@ -1,40 +1,29 @@
-# quadratic-equation
+# Task description
 
-[Link to Pypi](https://test.pypi.org/project/qequation-trkras-pkg/0.0.1/)
+There are 8 diners in different buildings of TalTech:
 
-### How to use?
+https://www.ttu.ee/students/university-facilities/canteen/
 
-Install the package
-```
-pip install -i https://test.pypi.org/simple/ qequation-trkras-pkg==1.0
-```
+but IT College diner:
 
-make a new python file and import the package
-```python
-import quadradic_solver.main as quadradic_solver
+https://www.itcollege.ee/tudengile/oppehoone/kohvik/
+
+is not in this list for unknown reason.
+
+There are 4 service providers in total: Rahva Toit, Baltic Restaurants Estonia AS, TTÜ Sport and Bitstop Kohvik OÜ.
+
+There are different opening hours for every canteen.
 
 
-quadradic_solver.ask_user_input(1, 0, 0) # This will call  the solve equaiton with user inputs.
 
-quadradic_solver.solve_equation() # Main function is solve_equation
-```
+Please zip all files (code + readme + SQLite database) and upload to Moodle
 
-This function will ask input from user and decides whether or not the equation has
-possible solutions or not. The method return tuple. If there are no solutions then a tuple
-of (-1, -1) will be returned and accompanying message will be printed out to the command line. 
+Hints: SQLite datatypes: https://www.sqlite.org/datatype3.html
 
-DEMO:
-```
-Insert square member(x^2): 2
-Insert member(x): 2
-Insert free member(c): 0
-The solution is: 0.0 -4.0
-```
 
-### Running tests
+## Scraping information
 
 ```
-cd tests
-
-python -m pytest
+pipenv shell
+pip install requests
 ```

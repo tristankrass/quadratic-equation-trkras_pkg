@@ -3,3 +3,6 @@ build/
 quadratic-equation-trkras_pkg
 quadratic_equation_trkras_pkg.egg-info/
 __pycache__
+.idea
+.vscode
+diner.db-*
