@@ -1,10 +1,21 @@
 # HW4
+The spider will scrape the famous IT-shop: https://arvutitark.ee.
+The spider will go through the subpages and will find the name, price and 
+image for the HDD.
 
 Spider finds hdd name, price and picture. 
 If hdd has no picture, then picture href is null.
 To run this spider and collect data to `hdd_data.json` file use commandline.
 
+One way of running the app
 ```
+pip3 install scrapy
+scrapy runspider app.py -o hdd_data.json
+```
+
+Use docker  app
+```
+pip install scrapy
 scrapy runspider app.py -o hdd_data.json
 ```
 

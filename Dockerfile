@@ -15,4 +15,4 @@ WORKDIR /app
 ADD . /app
 
 # During debugging, this entry point will be overridden. For more information, refer to https://aka.ms/vscode-docker-python-debug
-CMD ["python", "app.py"]
+CMD ["scrapy", "runspider", "/app/app.py", "-o", "hdd_data.json"]

@@ -8,20 +8,23 @@ class ComputerSpider(scrapy.Spider):
     start_urls = [
         'https://arvutitark.ee/est/tootekataloog/Arvutikomponendid-Kovakettad-HDD-SSD-Lauaarvuti-kovakettad']
 
+
+    def __init__(self):
+        self.NAME_SELECTOR = 'h2 ::text'
+        self.PRICE_SELECTOR = '.price ::text'
+        self.IMAGE_SELECTOR = 'img ::attr(src)'
+        self.NEXT_PAGE_SELECTOR = ".current + li ::attr(href)"
+
     def parse(self, response):
         """
-            Parser method for getting all HDD disks.
-            Parser finds HDD name, price, form factor,
-            net weight, size and image.
+        Parser method for getting all HDD disks.
+        Parser finds HDD name, price and image.
         """
         item_selector = '.item'
         for hdd in response.css(item_selector):
-            NAME_SELECTOR = 'h2 ::text'
-            PRICE_SELECTOR = '.price ::text'
-            IMAGE_SELECTOR = 'img ::attr(src)'
-            name = hdd.css(NAME_SELECTOR).get()
-            price = self._format_price(hdd.css(PRICE_SELECTOR).get())
-            image_href = self._format_img(hdd.css(IMAGE_SELECTOR).get())
+            name = hdd.css(self.NAME_SELECTOR).get()
+            price = self._format_price(hdd.css(self.PRICE_SELECTOR).get())
+            image_href = self._format_img(hdd.css(self.IMAGE_SELECTOR).get())
             if name is not None:
                 yield {
                     "HDD name": name,
@@ -29,9 +32,8 @@ class ComputerSpider(scrapy.Spider):
                     "Image": image_href
                 }
 
-        NEXT_PAGE_SELECTOR = ".current + li ::attr(href)"
-        next_page = response.css(NEXT_PAGE_SELECTOR).get()
-        
+        next_page = response.css(self.NEXT_PAGE_SELECTOR).get()
+
         if next_page:
             yield scrapy.Request(
                 response.urljoin(next_page),
@@ -40,24 +42,18 @@ class ComputerSpider(scrapy.Spider):
 
     @staticmethod
     def _format_price(price):
-        """
-        Formats price string to be float instead of string
-        :param price: Price string
-        """
+        """Formats price string to be float instead of string"""
         if price is None:
             return None
         _price = price.replace("€", "").replace(",", ".")
         try:
             return float(_price)
         except ValueError:
-            print("Error converting price to integer, price=" + price)
             return None
 
     @staticmethod
     def _format_img(image_path):
-        """
-        Format image href.
-        """
+        """Format image href."""
         if image_path is None:
             return None
         if image_path == "/img/048911.jpg":
