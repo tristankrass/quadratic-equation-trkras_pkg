@@ -1,4 +1,11 @@
-# Task description
+# HW4
+
+
+```
+scrapy runspider ordi.py -o data.json
+```
+
+### Task description
 
 Koduülesanne nr 4
 

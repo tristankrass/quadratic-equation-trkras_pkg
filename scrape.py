@@ -1,31 +1,63 @@
-"""Get all quantine information to text file."""
-import requests
-from bs4 import BeautifulSoup
-import csv
-
-URL = 'https://www.ttu.ee/students/university-facilities/canteen/'
-
-page = requests.get(URL)
-
-soup = BeautifulSoup(page.content, 'html.parser')
-# article = soup()
-article = soup.find("div", {"class": "article"}).table
-
-tds = article.find_all("td")
+"""Spider for finding the best prices on arvutitark.ee for HDDs."""
+import scrapy
 
 
-headers = []
-rows = []
+class ComputerSpider(scrapy.Spider):
+    name = "arvutitarkHDDs"
+    start_urls = [
+        'https://arvutitark.ee/est/tootekataloog/Arvutikomponendid-Kovakettad-HDD-SSD-Lauaarvuti-kovakettad']
 
-for i in range(len(tds)-2):
-    if i < 3:
-        headers.append(tds[i].text)
-    else:
-        rows.append({headers[0]: tds[i].text, headers[1]: tds[i+1]., headers[2]: tds[i+2]})
-        i+=2
+  def parse(self, response):
+     """
+        Parser method for getting all HDD disks.
+        Parser finds HDD name, price, form factor,
+        net weight, size and image.
+      """
+      item_selector = '.item, .item-first, .item-last'
+      for hdd in response.css(item_selector):
+          NAME_SELECTOR = '.product-name a ::text'
+          PRICE_SELECTOR = '.price ::text'
+          IMAGE_SELECTOR = 'img ::attr(src)'
 
-with open('cuantines.csv', 'w', newline='') as csvfile:
-    writer = csv.DictWriter(csvfile, fieldnames=headers)
-    writer.writeheader()
-    for row in rows:
-        writer.writerow(row)
+          price = self._format_price(hdd.css(PRICE_SELECTOR).get())
+          
+          # image_href = self._clear_img(hdd.css(IMAGE_SELECTOR).get())
+          yield {
+              'Product name': hdd.css(NAME_SELECTOR).get(),
+              'Price': price,
+          }
+
+      NEXT_PAGE_SELECTOR = ".next ::attr(href)"
+      next_page = response.css(NEXT_PAGE_SELECTOR).get()
+      if next_page:
+          yield scrapy.Request(
+              response.urljoin(next_page),
+              callback=self.parse
+          )
+
+    @staticmethod
+    def _format_price(price):
+        """
+        Formats price string to be float instead of string
+        :param price: Price string
+        """
+        if price is None:
+            return None
+        _price = price.replace("€", "").replace(",", ".")
+        try:
+            return float(_price)
+        except ValueError:
+            print("Error converting price to integer, price=" + price)
+            return None
+
+
+    @staticmethod
+    def _format_img(image_path):
+        """
+        Format image href.
+        """
+        if image_path is None:
+            return None
+        if image_path.endswith("/placeholder/default/small_image.jpg"):
+            return None
+        return image_path
