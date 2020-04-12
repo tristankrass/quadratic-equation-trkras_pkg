@@ -8,7 +8,6 @@ class ComputerSpider(scrapy.Spider):
     start_urls = [
         'https://arvutitark.ee/est/tootekataloog/Arvutikomponendid-Kovakettad-HDD-SSD-Lauaarvuti-kovakettad']
 
-
     def __init__(self):
         self.NAME_SELECTOR = 'h2 ::text'
         self.PRICE_SELECTOR = '.price ::text'
@@ -45,7 +44,7 @@ class ComputerSpider(scrapy.Spider):
         """Formats price string to be float instead of string"""
         if price is None:
             return None
-        _price = price.replace("€", "").replace(",", ".")
+        _price = price.replace("€", "")
         try:
             return float(_price)
         except ValueError:
@@ -54,8 +53,4 @@ class ComputerSpider(scrapy.Spider):
     @staticmethod
     def _format_img(image_path):
         """Format image href."""
-        if image_path is None:
-            return None
-        if image_path == "/img/048911.jpg":
-            return None
-        return "https://arvutitark.ee" + image_path
+        return None if image_path == "/img/048911.jpg" or image_path is None else "https://arvutitark.ee" + image_path
