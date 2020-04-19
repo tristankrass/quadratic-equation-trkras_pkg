@@ -10,5 +10,4 @@ def ask_user_input():
     return quadradic_solver.solve_equation(a, b, c)
 
 if __name__ == "__main__":
-    print(ask_user_input()) # Input (1, 0, 0) has no solutions
-    assert quadradic_solver.solve_equation("a", "b", "c") == (-1, -1)
+    print(ask_user_input()) # Insert your own values from command line
