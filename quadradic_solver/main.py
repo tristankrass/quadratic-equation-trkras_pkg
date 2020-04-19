@@ -1,15 +1,6 @@
 from math import sqrt
 
-def ask_user_input():
-    a = input("Insert square member(x^2): ")
-    b = input("Insert member(x): ")
-    c = input("Insert free member(c): ")
-    if (len(a) == 0 or len(b) == 0 or len(c) == 0):
-      print("Please add values for all operands!")
-      return
-    return solve_equation()
-
-def solve_equation(a, b, c) -> tuple:
+def solve_equation(a : str, b : str, c : str) -> tuple:
   try:
     a = int(a)
     b = int(b)
@@ -30,9 +21,3 @@ def solve_equation(a, b, c) -> tuple:
   except ValueError as e:
     print("This equation does not have any solutions")
     return (-1, -1)
-
-
-if __name__ == "__main__":
-    print(solve_equation(1, 0, 0))
-   # print(solve_equation(3, -3, -6))
-    #assert solve_equation("a", "b", "c") == (-1, -1)
