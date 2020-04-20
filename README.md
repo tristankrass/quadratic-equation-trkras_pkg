@@ -2,44 +2,58 @@
 
 ## Using the files.
 
+Make sure to  have Anaconda installed on the machine.
+Installation [link](https://www.anaconda.com/distribution/)
+
+Alternatevly install venv and repeat the steps above.
+```
+conda create --name flight python=3.7 pandas numpy cartopy jupyter -y
+conda activate flight
+```
+
+## Setting up data science stuff on vscode [Link](https://code.visualstudio.com/docs/python/data-science-tutorial)
+
+cleaning up after. Uninstalling the conda environment.
+```
+conda remove --name flight --all -y
+```
 
 ## Homework description
 
-Koduülesande eesmärk on harjutada graafilise keskkonna ja andmetega töötamist ning erinevatest allikatest pärit andmete kokkuliitmist. Samuti on eesmärgiks  pakettide paigaldamise õppimine keerulisematel juhtumitel.
+The aim of the homework is to practice working with a graphical environment and data, and to combine data from different sources. The aim is also to learn how to install packages in more complex cases. This is probably the most difficult homework, as installing packages can be quite complicated and may require a lot of time and additional reading.
 
-Ülesandeks on Tallinnast väljuvate otselendude joonistamine Euroopa kaardile. OpenFlights Airports Database-s https://openflights.org/data.html on üle 14000 lennujaama üle kogu maailma, kuid regulaarlennud Tallinnast toimuvad ainult mõnekümnesse.
+The task is to draw direct flights departing from Tallinn on a map of Europe. The OpenFlights Airports Database https://openflights.org/data.html has over 14,000 airports around the world, but scheduled flights from Tallinn to only a few dozen (before Corona-crisis).
 
-Lennujaamade andmed koos geograafiliste koordinaatidega
-https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat (ilma veerupealkirjadeta)
-või
-http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/airports.dat (veerupealkirjadega).
+Airport data with geographical coordinates
+https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat (without column headers)
+or
+http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/airports.dat (with column headers).
 
-Tallinnast väljuvad otselennud:
+Direct flights departing from Tallinn:
 http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/otselennud.csv
 
-Nende kahe tabeli põhjal ning Pythoni kartograafia- (nt. cartopy) ja joonestuspakettide (nt. matplotlib) kasutamisega tuleb luua Euroopa kaart ning kaardile kuvada lennujaamad, kuhu saab Tallinnast lennata koos lennuteekondadega sinna. Tähelepanu tasub pöörata sellele, et tulenevalt maakera kumeruse kujutamise iseärasustest ei ole geograafiline otsetee kahemõõtmelisel kaardil sirgjoon, vaid kõver.
-Loodud programm peab joonestama kaardi nii ekraanile kui ka salvestama failina (png, jpg, pdf või mõni muu formaat) sarnaselt näidisele: http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/lennud.png Kaardil peab olema ka pealkiri. Muu kujundus on omal valikul.
+Based on these two tables, and using Python's cartography (eg cartopy) and drawing packages (eg matplotlib), a map of Europe must be created and the airports displayed on the map, where you can fly on direct routes from Tallinn. It is worth noting that due to the peculiarities of depicting the curvature of the globe, a geographical shortcut on a two-dimensional map is not a straight line, but a curve.
+The created program must draw the map both on the screen and save it as a file (png, jpg, pdf or some other format) similar to the example: http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/lennud.png The map must have also the title. Other designs are on your choice.
 
-Samad andme- ja näidisfailid asuvad kokkupakituna ka ülesande lisas.
+The same data and sample files are also compressed in the task attachment.
 ------
-Kuidas teha?
+How to do this homework?
 
-Ilmselt on otstarbekas Tallinnast väljuvate otselendude tabelile lisada koordinaadid.
-Üks võimalus seda teha on kasutada 'pandas' library-t, selleks tuleb csv failid importida (pandas.read_csv) ja seejärel kokku 'mergeda'. Ühine väli kannab nime 'IATA'. Tasub tähele panna, et ühes failis on väljade eraldaja koma, teises semikoolon.
-Pandas csv importimine https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
+It is probably useful to add coordinates to the table of direct flights departing from Tallinn.
+One way to do this is to use the 'pandas' library by importing the csv files (pandas.read_csv) and then to merge. The common field is called 'IATA'. Note that one file has a field separator comma, the other a semicolon.
+Importing Pandas csv https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html
 
-Kokkutõstetud andmetega tabeli näidis on: http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/lennud.txt
+An example of a table with aggregated data is: http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/lennud.txt (Don't use it in homework!)
 
-Mõningad viited:
+Some references:
 
 https://scitools.org.uk/cartopy/docs/latest/installing.html
-Cartopy installeerimine Conda abiga.
+Installing Cartopy with Conda.
 
-
-Maakaartide (kontuurkaardid jne) joonistamine. Lennuteekondade joonistamine.
+Drawing maps (contour maps, etc.). Drawing flight paths.
 https://scitools.org.uk/cartopy/docs/latest/matplotlib/intro.html
 
-Veel lisalugemist:
+More reading:
 https://matplotlib.org/basemap/users/geography.html
 https://matplotlib.org/basemap/users/installing.html
 https://matplotlib.org/basemap/users/intro.html
