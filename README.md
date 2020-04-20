@@ -1,4 +1,6 @@
 # HW4
+[Source code here on branch **scraper**](https://github.com/tristankrass/quadratic-equation-trkras_pkg/tree/scraper) 
+
 The spider will scrape the famous IT-shop: https://arvutitark.ee.
 The spider will go through the subpages and will find the name, price and 
 image for the HDD.
@@ -13,10 +15,19 @@ pip3 install scrapy
 scrapy runspider app.py -o hdd_data.json
 ```
 
-Use docker  app
+## Using docker to run the app
+
+Build the image. After the image is build run the container.
+Then copy the generated json file to the host machine.
+Lastly clean up the host machine. 
 ```
-pip install scrapy
-scrapy runspider app.py -o hdd_data.json
+docker build -t scraper .
+
+docker container run --name scraper_container scraper
+docker cp scraper_container:/app/hdd_data.json .
+
+docker container rm scraper_container
+docker image rm scraper
 ```
 
 ### Task description
