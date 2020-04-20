@@ -1,5 +1,8 @@
 # HW nr 3
 
+[Link to additional files](http://enos.itcollege.ee/~eikivi/python/kaug6pe/Koduylesanne3/)
+
+
 ## Using the files.
 
 Make sure to  have Anaconda installed on the machine.
