@@ -1,4 +1,4 @@
-# quadratic-equation
+# HW1 quadratic-equation
 
 [Link to Pypi](https://test.pypi.org/project/qequation-trkras-pkg/)
 
