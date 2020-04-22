@@ -7,6 +7,8 @@
 
 Make sure to  have Anaconda installed on the machine.
 Installation [link](https://www.anaconda.com/distribution/)
+Also the file is served via jupyter notebooks so set up notebooks
+before looking in to the files. Example [here](https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook?utm_source=adwords_ppc&utm_campaignid=898687156&utm_adgroupid=48947256715&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=229765585183&utm_targetid=dsa-473406581035&utm_loc_interest_ms=&utm_loc_physical_ms=9061552&gclid=CjwKCAjw1v_0BRAkEiwALFkj5s_H5kTdGvjk0u8S4szINMES2sENqx97DupQn-BbBnoCY37L8O5vNxoCzgoQAvD_BwE)
 
 ```
 conda create --name flight python=3.7 pandas cartopy jupyter -y
