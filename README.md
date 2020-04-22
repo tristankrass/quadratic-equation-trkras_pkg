@@ -9,7 +9,7 @@ Make sure to  have Anaconda installed on the machine.
 Installation [link](https://www.anaconda.com/distribution/)
 
 ```
-conda create --name flight python=3.7 pandas numpy cartopy pyshp jupyter -y
+conda create --name flight python=3.7 pandas cartopy jupyter -y
 conda activate flight
 ```
 [More info about conda enviromnents](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
