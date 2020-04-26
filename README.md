@@ -1,5 +1,10 @@
 # README
 
+`quantine.py` contains a `class QuantineSQL` which includes
+all methods for inserting and reading data.
+Use methods `get_canteens_form_four_fifteet_to_six_pm` and `get_canteens_ran_by_rahva_toit(self)`
+for retrieving data from database.
+
 All the nessecary files.
 `queries.sql` contains all the sql commands for creating and quering the data that is needed
 for this exercise.
